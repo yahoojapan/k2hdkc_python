@@ -1,0 +1,155 @@
+# -*- coding: utf-8 -*-
+#
+# K2hdkc Python Driver under MIT License
+#
+# Copyright (c) 2022 Yahoo Japan Corporation
+#
+# For the full copyright and license information, please view
+# the license file that was distributed with this source code.
+#
+# AUTHOR:   Hirotaka Wakabayashi
+# CREATE:   Tue Feb 08 2022
+# REVISION:
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: k2hdkc \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-04 05:10+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Hirotaka Wakabayashi <hiwakaba-corp.jp>\n"
+"Language-Team: AntPickax <antpickax-support.yahoo.co.jp>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../k2hdkc.rst:2 k2hdkc:1 of
+msgid "k2hdkc package"
+msgstr "k2hdkcパッケージ"
+
+#: ../../k2hdkc.rst:5
+msgid "Submodules"
+msgstr "サブモジュール"
+
+#: ../../k2hdkc.rst:8
+msgid "k2hdkc.k2hdkc module"
+msgstr ""
+
+#: k2hdkc.k2hdkc:1 of
+msgid "K2hdkc Python Driver"
+msgstr ""
+
+#: k2hdkc.k2hdkc.K2hdkc:1 of
+msgid "Bases: :py:class:`object`"
+msgstr ""
+
+#: k2hdkc.k2hdkc.K2hdkc:1 of
+msgid ""
+"K2hdkc class provides methods to handle key/value pairs in k2hdkc hash "
+"database."
+msgstr "K2hdkcクラスはk2hdkcハッシュデータベースのkey/valueペアを操作するメソッドを提供します。"
+
+#: k2hdkc.k2hdkc.K2hdkc.add_subkey:1 of
+msgid "Adds a new subkey to a current subkey."
+msgstr "サブキーを追加します。"
+
+#: k2hdkc.k2hdkc.K2hdkc.cas_decrement:1 of
+msgid "Decrements a variable in a cluster by using a CAS operation."
+msgstr "CAS操作によって、値を一つ減じます。"
+
+#: k2hdkc.k2hdkc.K2hdkc.cas_get:1 of
+msgid "Gets a variable from a cluster using a CAS operation."
+msgstr "CAS操作によって、値を取得します。"
+
+#: k2hdkc.k2hdkc.K2hdkc.cas_increment:1 of
+msgid "Increments a variable in a cluster by using a CAS operation."
+msgstr "CAS操作によって、値を一つ足します。"
+
+#: k2hdkc.k2hdkc.K2hdkc.cas_init:1 of
+msgid "Initializes a variable in a cluster by using a CAS operation."
+msgstr "CAS操作によって、値を初期化します。"
+
+#: k2hdkc.k2hdkc.K2hdkc.cas_set:1 of
+msgid "Sets a value in a cluster by using a CAS operation."
+msgstr "CAS操作によって、値をセットします。"
+
+#: k2hdkc.k2hdkc.K2hdkc.clear_subkeys:1 of
+msgid ""
+"Clears subkeys of a key. Another subkeys that a subkey has will be "
+"removed recursively."
+msgstr "サブキーを削除します。"
+
+#: k2hdkc.k2hdkc.K2hdkc.close:1 of
+msgid "Closes the handle"
+msgstr "接続を閉じます。"
+
+#: k2hdkc.k2hdkc.K2hdkc.get:1 of
+msgid "Gets the value"
+msgstr "値を取得します。"
+
+#: k2hdkc.k2hdkc.K2hdkc.get_attributes:1 of
+msgid "Retrievs attributes of a key."
+msgstr "キーの属性を取得します。"
+
+#: k2hdkc.k2hdkc.K2hdkc.get_subkeys:1 of
+msgid "Retrievs subkeys of a key."
+msgstr "キーのサブキーを取得します。"
+
+#: k2hdkc.k2hdkc.K2hdkc.keyqueue_get:1 of
+msgid "Gets a new key/value element from queue."
+msgstr "キューからキーと値のセットを取得します。"
+
+#: k2hdkc.k2hdkc.K2hdkc.keyqueue_put:1 of
+msgid "Adds a new key/value pair element to a queue."
+msgstr "キューにキーと値のセットを追加します。"
+
+#: k2hdkc.K2hdkc.libc:1 k2hdkc.k2hdkc.K2hdkc.libc:1 of
+msgid "returns libc handle"
+msgstr "libcライブラリハンドルを返します。"
+
+#: k2hdkc.K2hdkc.libk2hdkc:1 k2hdkc.k2hdkc.K2hdkc.libk2hdkc:1 of
+msgid "returns libk2hkc handle"
+msgstr ""
+
+#: k2hdkc.k2hdkc.K2hdkc.queue_get:1 of
+msgid "Gets a new element to a queue."
+msgstr "キューの要素を取得します。"
+
+#: k2hdkc.k2hdkc.K2hdkc.queue_put:1 of
+msgid "Adds a new element to a queue."
+msgstr "キューに要素を追加します。"
+
+#: k2hdkc.k2hdkc.K2hdkc.remove:1 of
+msgid "Removes a key from a cluster."
+msgstr "キーを削除します。"
+
+#: k2hdkc.k2hdkc.K2hdkc.remove_subkeys:1 of
+msgid "Removes a subkey from the current subkeys."
+msgstr "サブキーを削除します。"
+
+#: k2hdkc.k2hdkc.K2hdkc.rename:1 of
+msgid "Renames a key in a cluster."
+msgstr "キーの名前を変えます。"
+
+#: k2hdkc.k2hdkc.K2hdkc.set:1 of
+msgid "Sets a key/value pair"
+msgstr "キーと値をセットします。"
+
+#: k2hdkc.k2hdkc.K2hdkc.set_subkeys:1 of
+msgid "Replaces current subkeys with new one."
+msgstr "サブキーをセットします。"
+
+#: ../../k2hdkc.rst:16
+msgid "Module contents"
+msgstr "モジュール"
+
+#
+# Local variables:
+# tab-width: 4
+# c-basic-offset: 4
+# End:
+# vim600: expandtab sw=4 ts=4 fdm=marker
+# vim<600: expandtab sw=4 ts=4
+#

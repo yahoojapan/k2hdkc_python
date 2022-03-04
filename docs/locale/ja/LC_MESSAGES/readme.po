@@ -1,0 +1,118 @@
+# -*- coding: utf-8 -*-
+#
+# K2hdkc Python Driver under MIT License
+# Copyright (c) 2022 Yahoo Japan Corporation
+# For the full copyright and license information, please view
+# the license file that was distributed with this source code.
+# AUTHOR:   Hirotaka Wakabayashi
+# CREATE:   Tue Feb 08 2022
+# REVISION:
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: k2hdkc \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-04 16:47+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Hirotaka Wakabayashi <hiwakaba-corp.jp>\n"
+"Language-Team: AntPickax <antpickax-support.yahoo.co.jp>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../../README.rst:3
+msgid "k2hdkc_python"
+msgstr ""
+
+#: ../../../README.rst:25
+msgid "Overview"
+msgstr "概要"
+
+#: ../../../README.rst:27
+msgid "k2hdkc_python is an official python driver for `k2hdkc`_."
+msgstr "k2hdkc_pythonは、k2hdkc_ のPython版（公式）です。"
+
+#: ../../../README.rst:35
+msgid "Install"
+msgstr "インストール"
+
+#: ../../../README.rst:37
+msgid "Let's install k2hdkc using pip::"
+msgstr "pipコマンドを使って、k2hdkcのPython版をインストールしましょう。"
+
+#: ../../../README.rst:43
+msgid "Usage"
+msgstr "使い方"
+
+#: ../../../README.rst:45
+msgid "Firstly you must install the k2hdkc shared library::"
+msgstr "最初に、k2hdkcの共有ライブラリをインストールしなければなりません。"
+
+#: ../../../README.rst:50
+#, fuzzy
+msgid "Then, Let's try to set a key and get it::"
+msgstr "それでは、キーに値をセットして、ゲットしてみましょう。"
+
+#: ../../../README.rst:61
+msgid "Development"
+msgstr "開発"
+
+#: ../../../README.rst:63
+msgid ""
+"Clone this repository and go into the directory, then run the following "
+"command::"
+msgstr "このレポジトリをクローンして、以下のコマンドを打ち込んでください。"
+
+#: ../../../README.rst:70
+msgid "Documents"
+msgstr "ドキュメント"
+
+#: ../../../README.rst:72
+msgid "Here are documents including other components."
+msgstr "k2hdkcのPython版以外のコンポーネントのドキュメントはこちらです。"
+
+#: ../../../README.rst:74
+msgid "`Document top page`_"
+msgstr "`ドキュメントトップ`_"
+
+#: ../../../README.rst:76
+msgid "`About K2HDKC`_"
+msgstr "`K2HDKCについて`_"
+
+#: ../../../README.rst:78
+msgid "`About AntPickax`_"
+msgstr "`AntPickaxについて`_"
+
+#: ../../../README.rst:89
+msgid "Packages"
+msgstr "パッケージについて"
+
+#: ../../../README.rst:91
+msgid "Here are packages including other components."
+msgstr "この他のコンポーネントのパッケージはこちらです。"
+
+#: ../../../README.rst:93
+msgid "`k2hdkc(python packages)`_"
+msgstr ""
+
+#: ../../../README.rst:99
+msgid "License"
+msgstr "ライセンス"
+
+#: ../../../README.rst:101
+msgid "MIT License. See the LICENSE file."
+msgstr "MITライセンスです。詳しくは、LICENSEファイルを見てください。"
+
+#: ../../../README.rst:104
+msgid "AntPickax"
+msgstr ""
+
+#: ../../../README.rst:106
+msgid ""
+"**k2hdkc_python** is a project by AntPickax_, which is an open source "
+"team in `Yahoo Japan Corporation`_."
+msgstr ""
+"k2hdkc_pythonは、 AntPickax_ によるプロジェクトの一つです。 AntPickax_ "
+"は、ヤフー株式会社のオープンソース開発チームの一つです。"
+

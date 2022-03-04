@@ -1,0 +1,59 @@
+# -*- coding: utf-8 -*-
+#
+# K2hdkc Python Driver under MIT License
+#
+# Copyright (c) 2022 Yahoo Japan Corporation
+#
+# For the full copyright and license information, please view
+# the license file that was distributed with this source code.
+#
+# AUTHOR:   Hirotaka Wakabayashi
+# CREATE:   Tue Feb 08 2022
+# REVISION:
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: k2hdkc \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-04 05:10+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Hirotaka Wakabayashi <hiwakaba-corp.jp>\n"
+"Language-Team: AntPickax <antpickax-support.yahoo.co.jp>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../index.rst:4
+msgid "Contents:"
+msgstr "内容"
+
+#: ../../index.rst:2
+msgid "Welcome to k2hdkc's documentation!"
+msgstr "k2hdkcのドキュメントへようこそ"
+
+#: ../../index.rst:15
+msgid "Indices and tables"
+msgstr "一覧"
+
+#: ../../index.rst:17
+msgid ":ref:`genindex`"
+msgstr "索引"
+
+#: ../../index.rst:18
+msgid ":ref:`modindex`"
+msgstr "モジュール索引"
+
+#: ../../index.rst:19
+msgid ":ref:`search`"
+msgstr "検索ページ"
+
+#
+# Local variables:
+# tab-width: 4
+# c-basic-offset: 4
+# End:
+# vim600: expandtab sw=4 ts=4 fdm=marker
+# vim<600: expandtab sw=4 ts=4
+#

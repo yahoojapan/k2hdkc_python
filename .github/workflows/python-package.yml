@@ -1,0 +1,76 @@
+# -*- coding: utf-8 -*-
+#
+# K2hdkc Python Driver under MIT License
+#
+# Copyright (c) 2022 Yahoo Japan Corporation
+#
+# For the full copyright and license information, please view
+# the license file that was distributed with this source code.
+#
+# AUTHOR:   Hirotaka Wakabayashi
+# CREATE:   Tue Feb 08 2022
+# REVISION:
+#
+#
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Python package
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  release:
+    types: [published]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.x", "3.10", "3.9", "3.8", "3.7"]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        ./.github/scripts/install_dependencies.sh
+      shell: sh
+    - name: Lint with pylint
+      run: |
+        ./.github/scripts/lint_with_pylint.sh
+      shell: sh
+    - name: Test with unittest
+      run: |
+        ./.github/scripts/test_with_unittest.sh
+      shell: sh
+    - name: Install dependencies for upload pypi package
+      if: startsWith(github.ref, 'refs/tags')
+      run: |
+        python -m pip install --upgrade pip
+        pip install build
+    - name: Build package
+      if: startsWith(github.ref, 'refs/tags')
+      run: python -m build
+    - name: Publish distribution to PyPI
+      if: ${{  matrix.python-version == '3.x' && startsWith(github.ref, 'refs/tags') }}
+      uses: pypa/gh-action-pypi-publish@master
+      with:
+        password: ${{ secrets.PYPI_API_TOKEN }}
+
+#
+# Local variables:
+# tab-width: 4
+# c-basic-offset: 4
+# End:
+# vim600: expandtab sw=4 ts=4 fdm=marker
+# vim<600: expandtab sw=4 ts=4
+#
