@@ -37,16 +37,25 @@ LOGLEVEL=info
 # Starts chmpx and k2hdkc
 #
 start_process() {
-	echo "chmpx -conf ${SRCDIR}/server.yaml -d ${LOGLEVEL} > ${SRCDIR}/chmpx.log 2>&1"
-	nohup chmpx -conf ${SRCDIR}/server.yaml -d ${LOGLEVEL} > ${SRCDIR}/chmpx.log 2>&1 &
+	if ! test -f "/tmp/server.yaml"; then
+		echo "cp ${SRCDIR}/server.yaml /tmp/"
+		cp ${SRCDIR}/server.yaml /tmp
+	fi
+	if ! test -f "/tmp/slave.yaml"; then
+		echo "cp ${SRCDIR}/slave.yaml /tmp/"
+		cp ${SRCDIR}/slave.yaml /tmp
+	fi
+
+	echo "chmpx -conf /tmp/server.yaml -d ${LOGLEVEL} > /tmp/chmpx.log 2>&1"
+	nohup chmpx -conf /tmp/server.yaml -d ${LOGLEVEL} > /tmp/chmpx.log 2>&1 &
 	echo "sleep 3"
 	sleep 3
-	echo "k2hdkc -conf ${SRCDIR}/server.yaml -d ${LOGLEVEL} > ${SRCDIR}/k2hdkc.log 2>&1"
-	nohup k2hdkc -conf ${SRCDIR}/server.yaml -d ${LOGLEVEL} > ${SRCDIR}/k2hdkc.log 2>&1 &
+	echo "k2hdkc -conf /tmp/server.yaml -d ${LOGLEVEL} > /tmp/k2hdkc.log 2>&1"
+	nohup k2hdkc -conf /tmp/server.yaml -d ${LOGLEVEL} > /tmp/k2hdkc.log 2>&1 &
 	echo "sleep 3"
 	sleep 3
-	echo "chmpx -conf ${SRCDIR}/slave.yaml -d ${LOGLEVEL}  > ${SRCDIR}/slave.log 2>&1"
-	nohup chmpx -conf ${SRCDIR}/slave.yaml -d ${LOGLEVEL}  > ${SRCDIR}/slave.log 2>&1 &
+	echo "chmpx -conf /tmp/slave.yaml -d ${LOGLEVEL}  > /tmp/slave.log 2>&1"
+	nohup chmpx -conf /tmp/slave.yaml -d ${LOGLEVEL}  > /tmp/slave.log 2>&1 &
 	echo "sleep 3"
 	sleep 3
 }
@@ -62,6 +71,14 @@ stop_process() {
 			pkill -9 -x ${PROC}
 		fi
 	done
+	if test -f "/tmp/server.yaml"; then
+		echo "rm -f /tmp/server.yaml"
+		rm -f /tmp/server.yaml
+	fi
+	if test -f "/tmp/slave.yaml"; then
+		echo "rm -f /tmp/slave.yaml"
+		rm -f /tmp/slave.yaml
+	fi
 }
 
 # Shows status of chmpx and k2hdkc
@@ -161,9 +178,9 @@ make_k2hash() {
 	elif test "${_os_name}" = "centos" -o "${_os_name}" = "rhel"; then
 		_configure_opt="--with-nss"
 		if test "${OS_VERSION}" = "7"; then
-		    sudo yum install -y git curl autoconf automake gcc gcc-c++ gdb make libtool pkgconfig libyaml-devel nss-devel
+			sudo yum install -y git curl autoconf automake gcc gcc-c++ gdb make libtool pkgconfig libyaml-devel nss-devel
 		elif test "${OS_VERSION}" = "8"; then
-		    sudo dnf install -y git curl autoconf automake gcc gcc-c++ gdb make libtool pkgconfig
+			sudo dnf install -y git curl autoconf automake gcc gcc-c++ gdb make libtool pkgconfig
 			sudo dnf install -y --enablerepo=powertools nss-devel libyaml-devel
 		fi
 	else
@@ -224,9 +241,9 @@ make_k2hdkc() {
 	elif test "${_os_name}" = "centos" -o "${_os_name}" = "rhel"; then
 		_configure_opt="--with-nss"
 		if test "${OS_VERSION}" = "7"; then
-		    sudo yum install -y git curl autoconf automake gcc gcc-c++ gdb make libtool pkgconfig libyaml-devel nss-devel
+			sudo yum install -y git curl autoconf automake gcc gcc-c++ gdb make libtool pkgconfig libyaml-devel nss-devel
 		elif test "${OS_VERSION}" = "8"; then
-		    sudo dnf install -y git curl autoconf automake gcc gcc-c++ gdb make libtool pkgconfig
+			sudo dnf install -y git curl autoconf automake gcc gcc-c++ gdb make libtool pkgconfig
 			sudo dnf install -y --enablerepo=powertools nss-devel libyaml-devel
 		fi
 	else

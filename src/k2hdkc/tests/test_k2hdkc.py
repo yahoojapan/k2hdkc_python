@@ -12,17 +12,18 @@
 # REVISION:
 #
 
-import unittest
-import k2hdkc
-import logging
 import ctypes
+import logging
 import time
+import unittest
 from struct import pack
+
+import k2hdkc
 
 
 class TestK2hdkc(unittest.TestCase):
     def test_K2hdkc_construct(self):
-        db = k2hdkc.K2hdkc('../cluster/slave.yaml')
+        db = k2hdkc.K2hdkc("/tmp/slave.yaml")
         self.assertTrue(isinstance(db, k2hdkc.K2hdkc))
         key = "hello"
         val = "world"
@@ -31,7 +32,7 @@ class TestK2hdkc(unittest.TestCase):
         db.close()
 
     def test_K2hdkc_add_subkey(self):
-        db = k2hdkc.K2hdkc('../cluster/slave.yaml')
+        db = k2hdkc.K2hdkc("/tmp/slave.yaml")
         self.assertTrue(isinstance(db, k2hdkc.K2hdkc))
         key = "hello"
         val = "world"
@@ -44,7 +45,7 @@ class TestK2hdkc(unittest.TestCase):
         db.close()
 
     def test_K2hdkc_clear_subkeys(self):
-        db = k2hdkc.K2hdkc('../cluster/slave.yaml')
+        db = k2hdkc.K2hdkc("/tmp/slave.yaml")
         self.assertTrue(isinstance(db, k2hdkc.K2hdkc))
         key = "hello"
         val = "world"
@@ -60,7 +61,7 @@ class TestK2hdkc(unittest.TestCase):
         db.close()
 
     def test_K2hdkc_get(self):
-        db = k2hdkc.K2hdkc('../cluster/slave.yaml')
+        db = k2hdkc.K2hdkc("/tmp/slave.yaml")
         self.assertTrue(isinstance(db, k2hdkc.K2hdkc))
         key = "hello"
         val = "world"
@@ -70,7 +71,7 @@ class TestK2hdkc(unittest.TestCase):
 
     @unittest.skip("skipping because no attrs")
     def test_K2hdkc_get_attrs(self):
-        db = k2hdkc.K2hdkc('../cluster/slave.yaml')
+        db = k2hdkc.K2hdkc("/tmp/slave.yaml")
         self.assertTrue(isinstance(db, k2hdkc.K2hdkc))
         key = "hello"
         val = "world"
@@ -79,7 +80,7 @@ class TestK2hdkc(unittest.TestCase):
         db.close()
 
     def test_K2hdkc_get_subkeys(self):
-        db = k2hdkc.K2hdkc('../cluster/slave.yaml')
+        db = k2hdkc.K2hdkc("/tmp/slave.yaml")
         self.assertTrue(isinstance(db, k2hdkc.K2hdkc))
         key = "hello"
         val = "world"
@@ -92,7 +93,7 @@ class TestK2hdkc(unittest.TestCase):
         db.close()
 
     def test_K2hdkc_queue_get(self):
-        db = k2hdkc.K2hdkc('../cluster/slave.yaml')
+        db = k2hdkc.K2hdkc("/tmp/slave.yaml")
         self.assertTrue(isinstance(db, k2hdkc.K2hdkc))
         key = "hello"
         val = "world"
@@ -105,7 +106,7 @@ class TestK2hdkc(unittest.TestCase):
         db.close()
 
     def test_K2hdkc_queue_put(self):
-        db = k2hdkc.K2hdkc('../cluster/slave.yaml')
+        db = k2hdkc.K2hdkc("/tmp/slave.yaml")
         self.assertTrue(isinstance(db, k2hdkc.K2hdkc))
         key = "hello"
         val = "world"
@@ -118,7 +119,7 @@ class TestK2hdkc(unittest.TestCase):
         db.close()
 
     def test_K2hdkc_keyqueue_get(self):
-        db = k2hdkc.K2hdkc('../cluster/slave.yaml')
+        db = k2hdkc.K2hdkc("/tmp/slave.yaml")
         self.assertTrue(isinstance(db, k2hdkc.K2hdkc))
         key = "hello"
         val = "world"
@@ -132,7 +133,7 @@ class TestK2hdkc(unittest.TestCase):
         db.close()
 
     def test_K2hdkc_keyqueue_put(self):
-        db = k2hdkc.K2hdkc('../cluster/slave.yaml')
+        db = k2hdkc.K2hdkc("/tmp/slave.yaml")
         self.assertTrue(isinstance(db, k2hdkc.K2hdkc))
         key = "hello"
         val = "world"
@@ -146,7 +147,7 @@ class TestK2hdkc(unittest.TestCase):
         db.close()
 
     def test_K2hdkc_remove(self):
-        db = k2hdkc.K2hdkc('../cluster/slave.yaml')
+        db = k2hdkc.K2hdkc("/tmp/slave.yaml")
         self.assertTrue(isinstance(db, k2hdkc.K2hdkc))
         key = "hello"
         val = "world"
@@ -157,7 +158,7 @@ class TestK2hdkc(unittest.TestCase):
         db.close()
 
     def test_K2hdkc_remove_subkeys(self):
-        db = k2hdkc.K2hdkc('../cluster/slave.yaml')
+        db = k2hdkc.K2hdkc("/tmp/slave.yaml")
         self.assertTrue(isinstance(db, k2hdkc.K2hdkc))
         key = "hello"
         val = "world"
@@ -172,7 +173,7 @@ class TestK2hdkc(unittest.TestCase):
         db.close()
 
     def test_K2hdkc_rename(self):
-        db = k2hdkc.K2hdkc('../cluster/slave.yaml')
+        db = k2hdkc.K2hdkc("/tmp/slave.yaml")
         self.assertTrue(isinstance(db, k2hdkc.K2hdkc))
         key = "hello"
         val = "world"
@@ -184,7 +185,7 @@ class TestK2hdkc(unittest.TestCase):
         db.close()
 
     def test_K2hdkc_set(self):
-        db = k2hdkc.K2hdkc('../cluster/slave.yaml')
+        db = k2hdkc.K2hdkc("/tmp/slave.yaml")
         key = "hello"
         val = "world"
         self.assertTrue(db.set(key, val), True)
@@ -193,7 +194,7 @@ class TestK2hdkc(unittest.TestCase):
         db.close()
 
     def test_K2hdkc_set_subkeys(self):
-        db = k2hdkc.K2hdkc('../cluster/slave.yaml')
+        db = k2hdkc.K2hdkc("/tmp/slave.yaml")
         self.assertTrue(isinstance(db, k2hdkc.K2hdkc))
         key = "hello"
         val = "world"
@@ -206,7 +207,7 @@ class TestK2hdkc(unittest.TestCase):
         db.close()
 
     def test_K2hdkc_cas_init(self):
-        db = k2hdkc.K2hdkc('../cluster/slave.yaml')
+        db = k2hdkc.K2hdkc("/tmp/slave.yaml")
         self.assertTrue(isinstance(db, k2hdkc.K2hdkc))
         key = "hello"
         val = "world"
@@ -214,13 +215,12 @@ class TestK2hdkc(unittest.TestCase):
         self.assertTrue(db.get(key), val)
         cas_key = "cas_hello"
         cas_value = 65530
-        self.assertTrue(db.cas_init(cas_key, pack('H', cas_value)), True)
-        self.assertTrue(db.cas_get(cas_key, k2hdkc.DataType.U_SHORT),
-                        cas_value)
+        self.assertTrue(db.cas_init(cas_key, pack("H", cas_value)), True)
+        self.assertTrue(db.cas_get(cas_key, k2hdkc.DataType.U_SHORT), cas_value)
         db.close()
 
     def test_K2hdkc_cas_get(self):
-        db = k2hdkc.K2hdkc('../cluster/slave.yaml')
+        db = k2hdkc.K2hdkc("/tmp/slave.yaml")
         self.assertTrue(isinstance(db, k2hdkc.K2hdkc))
         key = "hello"
         val = "world"
@@ -228,13 +228,12 @@ class TestK2hdkc(unittest.TestCase):
         self.assertTrue(db.get(key), val)
         cas_key = "cas_hello"
         cas_value = 65530
-        self.assertTrue(db.cas_init(cas_key, pack('H', cas_value)), True)
-        self.assertTrue(db.cas_get(cas_key, k2hdkc.DataType.U_SHORT),
-                        cas_value)
+        self.assertTrue(db.cas_init(cas_key, pack("H", cas_value)), True)
+        self.assertTrue(db.cas_get(cas_key, k2hdkc.DataType.U_SHORT), cas_value)
         db.close()
 
     def test_K2hdkc_cas_decrement(self):
-        db = k2hdkc.K2hdkc('../cluster/slave.yaml')
+        db = k2hdkc.K2hdkc("/tmp/slave.yaml")
         self.assertTrue(isinstance(db, k2hdkc.K2hdkc))
         key = "hello"
         val = "world"
@@ -242,19 +241,16 @@ class TestK2hdkc(unittest.TestCase):
         self.assertTrue(db.get(key), val)
         cas_key = "cas_hello"
         cas_value = 65530
-        self.assertTrue(db.cas_init(cas_key, pack('H', cas_value)), True)
-        self.assertTrue(db.cas_get(cas_key, k2hdkc.DataType.U_SHORT),
-                        cas_value)
+        self.assertTrue(db.cas_init(cas_key, pack("H", cas_value)), True)
+        self.assertTrue(db.cas_get(cas_key, k2hdkc.DataType.U_SHORT), cas_value)
         self.assertTrue(db.cas_increment(cas_key), True)
-        self.assertTrue(db.cas_get(cas_key, k2hdkc.DataType.U_SHORT),
-                        cas_value + 1)
+        self.assertTrue(db.cas_get(cas_key, k2hdkc.DataType.U_SHORT), cas_value + 1)
         self.assertTrue(db.cas_decrement(cas_key), True)
-        self.assertTrue(db.cas_get(cas_key, k2hdkc.DataType.U_SHORT),
-                        cas_value)
+        self.assertTrue(db.cas_get(cas_key, k2hdkc.DataType.U_SHORT), cas_value)
         db.close()
 
     def test_K2hdkc_cas_increment(self):
-        db = k2hdkc.K2hdkc('../cluster/slave.yaml')
+        db = k2hdkc.K2hdkc("/tmp/slave.yaml")
         self.assertTrue(isinstance(db, k2hdkc.K2hdkc))
         key = "hello"
         val = "world"
@@ -262,19 +258,16 @@ class TestK2hdkc(unittest.TestCase):
         self.assertTrue(db.get(key), val)
         cas_key = "cas_hello"
         cas_value = 65530
-        self.assertTrue(db.cas_init(cas_key, pack('H', cas_value)), True)
-        self.assertTrue(db.cas_get(cas_key, k2hdkc.DataType.U_SHORT),
-                        cas_value)
+        self.assertTrue(db.cas_init(cas_key, pack("H", cas_value)), True)
+        self.assertTrue(db.cas_get(cas_key, k2hdkc.DataType.U_SHORT), cas_value)
         self.assertTrue(db.cas_increment(cas_key), True)
-        self.assertTrue(db.cas_get(cas_key, k2hdkc.DataType.U_SHORT),
-                        cas_value + 1)
+        self.assertTrue(db.cas_get(cas_key, k2hdkc.DataType.U_SHORT), cas_value + 1)
         self.assertTrue(db.cas_decrement(cas_key), True)
-        self.assertTrue(db.cas_get(cas_key, k2hdkc.DataType.U_SHORT),
-                        cas_value)
+        self.assertTrue(db.cas_get(cas_key, k2hdkc.DataType.U_SHORT), cas_value)
         db.close()
 
     def test_K2hdkc_cas_set(self):
-        db = k2hdkc.K2hdkc('../cluster/slave.yaml')
+        db = k2hdkc.K2hdkc("/tmp/slave.yaml")
         self.assertTrue(isinstance(db, k2hdkc.K2hdkc))
         key = "hello"
         val = "world"
@@ -282,25 +275,21 @@ class TestK2hdkc(unittest.TestCase):
         self.assertTrue(db.get(key), val)
         cas_key = "cas_hello"
         cas_value = 65530
-        self.assertTrue(db.cas_init(cas_key, pack('H', cas_value)), True)
-        self.assertTrue(db.cas_get(cas_key, k2hdkc.DataType.U_SHORT),
-                        cas_value)
+        self.assertTrue(db.cas_init(cas_key, pack("H", cas_value)), True)
+        self.assertTrue(db.cas_get(cas_key, k2hdkc.DataType.U_SHORT), cas_value)
         self.assertTrue(db.cas_increment(cas_key), True)
-        self.assertTrue(db.cas_get(cas_key, k2hdkc.DataType.U_SHORT),
-                        cas_value + 1)
+        self.assertTrue(db.cas_get(cas_key, k2hdkc.DataType.U_SHORT), cas_value + 1)
         self.assertTrue(db.cas_decrement(cas_key), True)
-        self.assertTrue(db.cas_get(cas_key, k2hdkc.DataType.U_SHORT),
-                        cas_value)
+        self.assertTrue(db.cas_get(cas_key, k2hdkc.DataType.U_SHORT), cas_value)
         new_cas_value = 1
         self.assertTrue(
-            db.cas_set(cas_key, pack('H', cas_value),
-                       pack('H', new_cas_value)), True)
-        self.assertTrue(db.cas_get(cas_key, k2hdkc.DataType.U_SHORT),
-                        new_cas_value)
+            db.cas_set(cas_key, pack("H", cas_value), pack("H", new_cas_value)), True
+        )
+        self.assertTrue(db.cas_get(cas_key, k2hdkc.DataType.U_SHORT), new_cas_value)
         db.close()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
 #

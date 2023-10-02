@@ -11,7 +11,6 @@
 # CREATE:   Tue Feb 08 2022
 # REVISION:
 #
-#
 # This workflow will install Python dependencies, run tests and lint with a variety of Python versions
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
@@ -32,25 +31,33 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.x", "3.10", "3.9", "3.8", "3.7"]
-
+        python-version: ["3.11", "3.10", "3.9", "3.8"]
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
+        architecture: "x64"
     - name: Install dependencies
       run: |
         ./.github/scripts/install_dependencies.sh
       shell: sh
+    - name: Install dependencies in GHA
+      run: |
+        python -m pip install --upgrade pip
+        pip install pylint pytest
     - name: Lint with pylint
       run: |
         ./.github/scripts/lint_with_pylint.sh
       shell: sh
     - name: Test with unittest
       run: |
-        ./.github/scripts/test_with_unittest.sh
+        python -I -m pip install 'setuptools>=42' wheel
+        pip install -q build
+        python -m build
+        pip3 install dist/k2hdkc-*.whl
+        pytest
       shell: sh
     - name: Install dependencies for upload pypi package
       if: startsWith(github.ref, 'refs/tags')
@@ -61,7 +68,7 @@ jobs:
       if: startsWith(github.ref, 'refs/tags')
       run: python -m build
     - name: Publish distribution to PyPI
-      if: ${{  matrix.python-version == '3.x' && startsWith(github.ref, 'refs/tags') }}
+      if: ${{  matrix.python-version == '3.11' && startsWith(github.ref, 'refs/tags') }}
       uses: pypa/gh-action-pypi-publish@master
       with:
         password: ${{ secrets.PYPI_API_TOKEN }}

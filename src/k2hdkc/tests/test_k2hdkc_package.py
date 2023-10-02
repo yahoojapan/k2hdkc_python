@@ -12,9 +12,10 @@
 # REVISION:
 #
 
-import unittest
-import k2hdkc
 import logging
+import unittest
+
+import k2hdkc
 
 
 class TestK2hdkcPackage(unittest.TestCase):
@@ -22,20 +23,19 @@ class TestK2hdkcPackage(unittest.TestCase):
         libk2hdkc = k2hdkc.get_library_handle()
         self.assertTrue(libk2hdkc)
         self.assertTrue(isinstance(libk2hdkc, dict))
-        self.assertTrue(libk2hdkc['c'])
-        self.assertTrue(libk2hdkc['k2hdkc'])
+        self.assertTrue(libk2hdkc["c"])
+        self.assertTrue(libk2hdkc["k2hdkc"])
 
     def test_set_log_level(self):
         k2hdkc.set_log_level(logging.INFO)
-        logger = logging.getLogger('k2hdkc')
-        self.assertEqual(logging.getLevelName(logger.level), 'INFO')
+        logger = logging.getLogger("k2hdkc")
+        self.assertEqual(logging.getLevelName(logger.level), "INFO")
 
     def test_set_layer_log_level(self):
-        self.assertEqual(
-            k2hdkc.set_layer_log_level(k2hdkc.LayerLogLevel.K2HDKC), True)
+        self.assertEqual(k2hdkc.set_layer_log_level(k2hdkc.LayerLogLevel.K2HDKC), True)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
 #

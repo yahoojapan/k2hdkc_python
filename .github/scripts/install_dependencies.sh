@@ -36,21 +36,23 @@ case "${OS_NAME}-${OS_VERSION}" in
         DEBIAN_FRONTEND="noninteractive" sudo apt-get update -y
         DEBIAN_FRONTEND="noninteractive" sudo apt-get install -y curl pylint
         curl -s https://packagecloud.io/install/repositories/antpickax/stable/script.deb.sh | sudo bash
+        DEBIAN_FRONTEND="noninteractive" sudo apt-get install -y k2hdkc-dev
         ;;
     centos-7)
         sudo yum install -y epel-release-7
         sudo yum install -y --enablerepo=epel pylint python3 git curl which
         curl -s https://packagecloud.io/install/repositories/antpickax/stable/script.rpm.sh | sudo bash
+        sudo yum install -y k2hdkc-devel
         ;;
     centos-8|fedora*)
         sudo dnf install -y epel-release-8
         sudo dnf install -y python3-pylint git curl
         curl -s https://packagecloud.io/install/repositories/antpickax/stable/script.rpm.sh | sudo bash
+        sudo dnf install -y k2hdkc-devel
         ;;
 esac
 
-cd cluster
-sh start_server.sh
+sh ./cluster/start_server.sh
 
 exit $?
 
