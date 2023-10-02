@@ -31,7 +31,7 @@ msgstr "内容"
 
 #: ../../index.rst:2
 msgid "Welcome to k2hdkc's documentation!"
-msgstr "k2hdkcのドキュメントへようこそ"
+msgstr "k2hdkのドキュメントへようこそ"
 
 #: ../../index.rst:15
 msgid "Indices and tables"
