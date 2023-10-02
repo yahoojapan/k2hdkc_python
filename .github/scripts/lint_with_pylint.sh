@@ -30,9 +30,7 @@ else
 fi
 
 echo "[OK] HOSTNAME=${HOSTNAME} OS_NAME=${OS_NAME} OS_VERSION=${OS_VERSION}"
-cd src
-
-pylint k2hdkc --py3k -r n
+pylint src/k2hdkc
 
 exit $?
 
