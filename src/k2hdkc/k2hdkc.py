@@ -73,7 +73,7 @@ class K2hdkc:
             raise RuntimeError("handle should not be K2H_INVALID_HANDLE")
         self._handle = handle
 
-    def __init__(
+    def __init__(       # pylint: disable=too-many-positional-arguments
         self,
         conf_file,
         port=8031,
@@ -139,7 +139,7 @@ class K2hdkc:
         """returns libc handle"""
         return self._libc
 
-    def set(  # noqa: pylint: disable=too-many-branches
+    def set(  # noqa: pylint: disable=too-many-branches,too-many-positional-arguments
         self,
         key,
         val,
@@ -268,7 +268,7 @@ class K2hdkc:
     #   bool checkattr,
     #   const char* encpass,
     #   const time_t* expire)
-    def add_subkey(
+    def add_subkey(     # pylint: disable=too-many-positional-arguments
         self,
         key,
         subkey,
@@ -530,7 +530,7 @@ class K2hdkc:
     #   uint8_t newval,
     #   const char* encpass,
     #   const time_t* expire)
-    def cas_set(  # noqa: pylint: disable=too-many-branches
+    def cas_set(  # noqa  pylint: disable=too-many-branches,too-many-positional-arguments
         self, key, old_val, new_val, password=None, expire_duration=None
     ):
         """Sets a value in a cluster by using a CAS operation."""
@@ -742,7 +742,7 @@ class K2hdkc:
     #   bool checkattr,
     #   const char* encpass,
     #   const time_t* expire)
-    def queue_put(
+    def queue_put(      # pylint: disable=too-many-positional-arguments
         self,
         prefix,
         val,
@@ -841,7 +841,7 @@ class K2hdkc:
     #   bool checkattr,
     #   const char* encpass,
     #   const time_t* expire)
-    def keyqueue_put(
+    def keyqueue_put(       # pylint: disable=too-many-positional-arguments
         self,
         prefix,
         key,
@@ -952,7 +952,7 @@ class K2hdkc:
     #   bool checkattr,
     #   const char* encpass,
     #   const time_t* expire)
-    def rename(
+    def rename(     # pylint: disable=too-many-positional-arguments
         self,
         key,
         newkey,

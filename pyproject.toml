@@ -22,7 +22,7 @@ build-backend = "setuptools.build_meta"
 legacy_tox_ini = """
     [tox]
     requires = tox>=4
-    env_list = lint, type, py{38,39,310,311}
+    env_list = lint, type, py{39,310,311,312,313}
     skip_missing_interpreters = True
     
     [testenv]
